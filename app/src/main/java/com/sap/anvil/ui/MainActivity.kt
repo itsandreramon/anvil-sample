@@ -17,8 +17,6 @@ class MainActivity : AppCompatActivity() {
 
     @Inject lateinit var remoteDataSource: DataSource.RemoteDataSource
 
-    @Inject lateinit var localDataSource: DataSource.LocalDataSource
-
     override fun onCreate(savedInstanceState: Bundle?) {
         inject(this)
         super.onCreate(savedInstanceState)
