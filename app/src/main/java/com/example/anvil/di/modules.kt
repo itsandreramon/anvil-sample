@@ -1,7 +1,7 @@
-package com.sap.anvil.di
+package com.example.anvil.di
 
-import com.sap.anvil.data.DataSource
-import com.sap.anvil.session.UserSession
+import com.example.anvil.data.DataSource
+import com.example.anvil.session.UserSession
 import com.squareup.anvil.annotations.ContributesTo
 import dagger.Module
 import dagger.Provides

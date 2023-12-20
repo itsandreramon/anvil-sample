@@ -1,10 +1,10 @@
-package com.sap.anvil.session
+package com.example.anvil.session
 
 import android.content.Context
-import com.sap.anvil.App
-import com.sap.anvil.di.AppScope
-import com.sap.anvil.di.SingleIn
-import com.sap.anvil.di.UserComponent
+import com.example.anvil.App
+import com.example.anvil.di.AppScope
+import com.example.anvil.di.SingleIn
+import com.example.anvil.di.UserComponent
 import com.squareup.anvil.annotations.ContributesBinding
 import javax.inject.Inject
 

@@ -1,9 +1,9 @@
-package com.sap.anvil
+package com.example.anvil
 
 import android.app.Application
-import com.sap.anvil.di.AppComponent
-import com.sap.anvil.di.DaggerAppComponent
-import com.sap.anvil.session.UserSessionManager
+import com.example.anvil.di.AppComponent
+import com.example.anvil.di.DaggerAppComponent
+import com.example.anvil.session.UserSessionManager
 import javax.inject.Inject
 
 class App : Application() {

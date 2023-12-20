@@ -1,4 +1,4 @@
-package com.sap.anvil.di
+package com.example.anvil.di
 
 import javax.inject.Scope
 import kotlin.reflect.KClass

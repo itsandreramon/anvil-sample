@@ -1,10 +1,10 @@
-package com.sap.anvil.di
+package com.example.anvil.di
 
 import android.content.Context
-import com.sap.anvil.App
-import com.sap.anvil.session.UserSession
-import com.sap.anvil.ui.LoginActivity
-import com.sap.anvil.ui.MainActivity
+import com.example.anvil.App
+import com.example.anvil.session.UserSession
+import com.example.anvil.ui.LoginActivity
+import com.example.anvil.ui.MainActivity
 import com.squareup.anvil.annotations.MergeComponent
 import com.squareup.anvil.annotations.MergeSubcomponent
 import dagger.BindsInstance

@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.sap.anvil"
+    namespace = "com.example.anvil"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.sap.anvil"
+        applicationId = "com.example.anvil"
 
         minSdk = 24
         targetSdk = 34

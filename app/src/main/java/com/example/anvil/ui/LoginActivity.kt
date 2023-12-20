@@ -1,4 +1,4 @@
-package com.sap.anvil.ui
+package com.example.anvil.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,10 +6,10 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.sap.anvil.R
-import com.sap.anvil.data.DataSource
-import com.sap.anvil.di.inject
-import com.sap.anvil.session.UserSessionManager
+import com.example.anvil.R
+import com.example.anvil.data.DataSource
+import com.example.anvil.di.inject
+import com.example.anvil.session.UserSessionManager
 import javax.inject.Inject
 
 class LoginActivity : AppCompatActivity() {

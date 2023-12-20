@@ -1,7 +1,7 @@
-package com.sap.anvil.data
+package com.example.anvil.data
 
-import com.sap.anvil.session.UserSession
-import com.sap.anvil.util.log
+import com.example.anvil.session.UserSession
+import com.example.anvil.util.log
 import javax.inject.Inject
 
 interface DataSource {

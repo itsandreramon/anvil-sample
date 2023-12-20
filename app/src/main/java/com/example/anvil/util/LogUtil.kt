@@ -1,4 +1,4 @@
-package com.sap.anvil.util
+package com.example.anvil.util
 
 import android.util.Log
 
