@@ -30,7 +30,7 @@ interface UserSessionManager {
     @ContributesBinding(AppScope::class)
     class Impl @Inject constructor(
         private val applicationContext: Context
-    ): UserSessionManager {
+    ) : UserSessionManager {
 
         override var userComponent: UserComponent? = null
 

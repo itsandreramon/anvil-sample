@@ -10,7 +10,9 @@ interface DataSource {
 
     class LocalDataSource @Inject constructor() : DataSource {
 
-        init { log("Creating data source: $this") }
+        init {
+            log("Creating data source: $this")
+        }
 
         override fun getData(): String {
             return "No user session found"
@@ -21,7 +23,9 @@ interface DataSource {
         private val userSession: UserSession
     ) : DataSource {
 
-        init { log("Creating data source: $this") }
+        init {
+            log("Creating data source: $this")
+        }
 
         override fun getData(): String {
             return "Some data for user ${userSession.id}"

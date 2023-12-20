@@ -5,8 +5,6 @@ import com.sap.anvil.App
 import com.sap.anvil.session.UserSession
 import com.sap.anvil.ui.LoginActivity
 import com.sap.anvil.ui.MainActivity
-import com.squareup.anvil.annotations.ContributesSubcomponent
-import com.squareup.anvil.annotations.ContributesTo
 import com.squareup.anvil.annotations.MergeComponent
 import com.squareup.anvil.annotations.MergeSubcomponent
 import dagger.BindsInstance
