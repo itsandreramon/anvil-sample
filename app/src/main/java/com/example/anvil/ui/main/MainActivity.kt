@@ -15,7 +15,6 @@ import javax.inject.Inject
 class MainActivity : AppCompatActivity() {
 
     @Inject lateinit var userSessionManager: UserSessionManager
-
     @Inject lateinit var viewModelFactory: MainViewModel.Factory
 
     private val viewModel: MainViewModel by viewModels { viewModelFactory }

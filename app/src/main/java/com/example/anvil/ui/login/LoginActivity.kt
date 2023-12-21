@@ -16,7 +16,6 @@ import javax.inject.Inject
 class LoginActivity : AppCompatActivity() {
 
     @Inject lateinit var userSessionManager: UserSessionManager
-
     @Inject lateinit var viewModelFactory: LoginViewModel.Factory
 
     private val viewModel: LoginViewModel by viewModels { viewModelFactory }
