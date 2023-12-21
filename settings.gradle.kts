@@ -13,5 +13,4 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Anvil-Sample"
 include(":app")
