@@ -1,4 +1,4 @@
-package com.example.anvil.ui
+package com.example.anvil.ui.login
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,6 +10,7 @@ import com.example.anvil.R
 import com.example.anvil.data.DataSource
 import com.example.anvil.di.inject
 import com.example.anvil.session.UserSessionManager
+import com.example.anvil.ui.main.MainActivity
 import javax.inject.Inject
 
 class LoginActivity : AppCompatActivity() {

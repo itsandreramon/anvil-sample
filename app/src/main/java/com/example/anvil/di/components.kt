@@ -3,8 +3,8 @@ package com.example.anvil.di
 import android.content.Context
 import com.example.anvil.App
 import com.example.anvil.session.UserSession
-import com.example.anvil.ui.LoginActivity
-import com.example.anvil.ui.MainActivity
+import com.example.anvil.ui.login.LoginActivity
+import com.example.anvil.ui.main.MainActivity
 import com.squareup.anvil.annotations.MergeComponent
 import com.squareup.anvil.annotations.MergeSubcomponent
 import dagger.BindsInstance
