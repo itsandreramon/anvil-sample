@@ -32,6 +32,6 @@ object UserModule {
     fun provideUserCoroutineScope(
         userSessionManager: UserSessionManager,
     ): CoroutineScope {
-        return userSessionManager.userCoroutineScope!!
+        return userSessionManager.userCoroutineScope
     }
 }

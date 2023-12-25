@@ -24,7 +24,7 @@ import javax.inject.Inject
  */
 interface UserSessionManager {
 
-    val userCoroutineScope: CoroutineScope?
+    val userCoroutineScope: CoroutineScope
 
     val userComponent: UserComponent?
 
@@ -38,13 +38,18 @@ interface UserSessionManager {
         private val applicationContext: Context
     ) : UserSessionManager {
 
-        override var userCoroutineScope: CoroutineScope? = null
+        private var _userCoroutineScope: CoroutineScope? = null
+
+        override var userCoroutineScope: CoroutineScope
+            get() = _userCoroutineScope ?: createUserCoroutineScope()
+            set(value) { _userCoroutineScope = value }
 
         override var userComponent: UserComponent? = null
 
         override fun resetSession() {
             log("reset session...")
-            userCoroutineScope?.cancel()
+            _userCoroutineScope?.cancel()
+            _userCoroutineScope = null
             userComponent = null
         }
 
@@ -53,10 +58,14 @@ interface UserSessionManager {
             val app = applicationContext as App
             val session = UserSession(id)
 
-            userCoroutineScope = CoroutineScope(SupervisorJob())
             userComponent = app.appComponent
                 .userComponentFactory()
                 .create(session)
+        }
+
+        private fun createUserCoroutineScope(): CoroutineScope {
+            return _userCoroutineScope ?: CoroutineScope(SupervisorJob())
+                .also { _userCoroutineScope = it }
         }
     }
 }
