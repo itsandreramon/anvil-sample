@@ -18,7 +18,7 @@ interface AppComponent {
     @Component.Factory
     interface Factory {
         fun create(
-            @BindsInstance applicationContext: Context
+            @BindsInstance applicationContext: Context,
         ): AppComponent
     }
 
@@ -36,7 +36,7 @@ interface UserComponent {
     @Subcomponent.Factory
     interface Factory {
         fun create(
-            @BindsInstance userSession: UserSession
+            @BindsInstance userSession: UserSession,
         ): UserComponent
     }
 

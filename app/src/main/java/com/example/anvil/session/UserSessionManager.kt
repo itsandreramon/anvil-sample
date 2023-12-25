@@ -5,7 +5,11 @@ import com.example.anvil.App
 import com.example.anvil.di.AppScope
 import com.example.anvil.di.SingleIn
 import com.example.anvil.di.UserComponent
+import com.example.anvil.util.log
 import com.squareup.anvil.annotations.ContributesBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.cancel
 import javax.inject.Inject
 
 /**
@@ -20,6 +24,8 @@ import javax.inject.Inject
  */
 interface UserSessionManager {
 
+    val userCoroutineScope: CoroutineScope?
+
     val userComponent: UserComponent?
 
     fun resetSession()
@@ -32,16 +38,22 @@ interface UserSessionManager {
         private val applicationContext: Context
     ) : UserSessionManager {
 
+        override var userCoroutineScope: CoroutineScope? = null
+
         override var userComponent: UserComponent? = null
 
         override fun resetSession() {
+            log("reset session...")
+            userCoroutineScope?.cancel()
             userComponent = null
         }
 
         override fun createSession(id: String) {
+            log("create session...")
             val app = applicationContext as App
             val session = UserSession(id)
 
+            userCoroutineScope = CoroutineScope(SupervisorJob())
             userComponent = app.appComponent
                 .userComponentFactory()
                 .create(session)

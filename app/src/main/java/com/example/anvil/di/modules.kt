@@ -1,19 +1,24 @@
 package com.example.anvil.di
 
-import com.example.anvil.data.DataSource
-import com.example.anvil.session.UserSession
+import android.content.Context
+import com.example.anvil.App
+import com.example.anvil.session.UserSessionManager
 import com.squareup.anvil.annotations.ContributesTo
 import dagger.Module
 import dagger.Provides
+import kotlinx.coroutines.CoroutineScope
 
 @Module
 @ContributesTo(AppScope::class)
 object AppModule {
 
     @Provides
+    @ApplicationCoroutineScope
     @SingleIn(AppScope::class)
-    fun provideDataSource(): DataSource.LocalDataSource {
-        return DataSource.LocalDataSource()
+    fun provideApplicationCoroutineScope(
+        applicationContext: Context
+    ): CoroutineScope {
+        return (applicationContext as App).applicationScope
     }
 }
 
@@ -22,10 +27,11 @@ object AppModule {
 object UserModule {
 
     @Provides
+    @UserCoroutineScope
     @SingleIn(UserScope::class)
-    fun provideDataSource(
-        userSession: UserSession,
-    ): DataSource.RemoteDataSource {
-        return DataSource.RemoteDataSource(userSession)
+    fun provideUserCoroutineScope(
+        userSessionManager: UserSessionManager,
+    ): CoroutineScope {
+        return userSessionManager.userCoroutineScope!!
     }
 }
