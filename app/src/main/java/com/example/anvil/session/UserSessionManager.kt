@@ -1,6 +1,5 @@
 package com.example.anvil.session
 
-import android.content.Context
 import com.example.anvil.App
 import com.example.anvil.di.AppScope
 import com.example.anvil.di.SingleIn
@@ -35,7 +34,7 @@ interface UserSessionManager {
     @SingleIn(AppScope::class)
     @ContributesBinding(AppScope::class)
     class Impl @Inject constructor(
-        private val applicationContext: Context
+        private val app: App,
     ) : UserSessionManager {
 
         private var _userCoroutineScope: CoroutineScope? = null
@@ -55,7 +54,6 @@ interface UserSessionManager {
 
         override fun createSession(id: String) {
             log("create session...")
-            val app = applicationContext as App
             val session = UserSession(id)
 
             userComponent = app.appComponent

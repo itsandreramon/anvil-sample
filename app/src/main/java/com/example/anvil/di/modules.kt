@@ -1,6 +1,5 @@
 package com.example.anvil.di
 
-import android.content.Context
 import com.example.anvil.App
 import com.example.anvil.session.UserSessionManager
 import com.squareup.anvil.annotations.ContributesTo
@@ -16,9 +15,9 @@ object AppModule {
     @ApplicationCoroutineScope
     @SingleIn(AppScope::class)
     fun provideApplicationCoroutineScope(
-        applicationContext: Context
+        app: App,
     ): CoroutineScope {
-        return (applicationContext as App).applicationScope
+        return app.applicationScope
     }
 }
 

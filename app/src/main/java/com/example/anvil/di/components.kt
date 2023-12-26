@@ -1,6 +1,5 @@
 package com.example.anvil.di
 
-import android.content.Context
 import com.example.anvil.App
 import com.example.anvil.session.UserSession
 import com.example.anvil.ui.login.LoginActivity
@@ -18,7 +17,7 @@ interface AppComponent {
     @Component.Factory
     interface Factory {
         fun create(
-            @BindsInstance applicationContext: Context,
+            @BindsInstance app: App,
         ): AppComponent
     }
 
