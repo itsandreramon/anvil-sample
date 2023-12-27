@@ -52,6 +52,4 @@ dependencies {
     implementation("com.squareup.anvil:annotations-optional:2.4.8")
     implementation("com.google.dagger:dagger:2.50")
     kapt("com.google.dagger:dagger-compiler:2.50")
-
-    testImplementation("junit:junit:4.13.2")
 }
