@@ -44,6 +44,7 @@ interface UserSessionManager {
             private set(value) { _userCoroutineScope = value }
 
         override var userComponent: UserComponent? = null
+            private set
 
         override fun resetSession() {
             log("reset session...")
