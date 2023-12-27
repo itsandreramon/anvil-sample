@@ -1,10 +1,10 @@
 package com.example.anvil.data
 
-import com.example.anvil.di.SingleIn
 import com.example.anvil.di.UserScope
 import com.example.anvil.session.UserCoroutineScope
 import com.example.anvil.session.UserSession
 import com.example.anvil.util.log
+import com.squareup.anvil.annotations.optional.SingleIn
 import javax.inject.Inject
 
 @SingleIn(UserScope::class)

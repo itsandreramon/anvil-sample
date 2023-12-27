@@ -8,6 +8,7 @@ import com.example.anvil.ui.login.LoginActivity
 import com.example.anvil.ui.main.MainActivity
 import com.squareup.anvil.annotations.MergeComponent
 import com.squareup.anvil.annotations.MergeSubcomponent
+import com.squareup.anvil.annotations.optional.SingleIn
 import dagger.BindsInstance
 import dagger.Component
 import dagger.Subcomponent

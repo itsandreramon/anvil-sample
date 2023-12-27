@@ -2,10 +2,10 @@ package com.example.anvil.session
 
 import com.example.anvil.App
 import com.example.anvil.di.AppScope
-import com.example.anvil.di.SingleIn
 import com.example.anvil.di.UserComponent
 import com.example.anvil.util.log
 import com.squareup.anvil.annotations.ContributesBinding
+import com.squareup.anvil.annotations.optional.SingleIn
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel

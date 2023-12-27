@@ -2,8 +2,8 @@ package com.example.anvil.data
 
 import com.example.anvil.AppCoroutineScope
 import com.example.anvil.di.AppScope
-import com.example.anvil.di.SingleIn
 import com.example.anvil.util.log
+import com.squareup.anvil.annotations.optional.SingleIn
 import javax.inject.Inject
 
 @SingleIn(AppScope::class)
