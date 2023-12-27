@@ -23,12 +23,9 @@ class UserCoroutineScope(
  * inject a UserSession object and will be recreated if a new UserSession
  * object is created.
  *
- * @property userCoroutineScope CoroutineScope associated with the UserScope.
  * @property userComponent Stores dependencies scoped to a UserSession.
  */
 interface UserSessionManager {
-
-    val userCoroutineScope: UserCoroutineScope
 
     val userComponent: UserComponent?
 
@@ -44,7 +41,7 @@ interface UserSessionManager {
 
         private var _userCoroutineScope: UserCoroutineScope? = null
 
-        override val userCoroutineScope: UserCoroutineScope
+        private val userCoroutineScope: UserCoroutineScope
             get() = _userCoroutineScope ?: createUserCoroutineScope()
 
         override var userComponent: UserComponent? = null
