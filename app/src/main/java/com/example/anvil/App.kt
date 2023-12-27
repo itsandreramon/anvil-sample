@@ -12,7 +12,7 @@ class App : Application() {
 
     @Inject lateinit var userSessionManager: UserSessionManager
 
-    val applicationScope = CoroutineScope(SupervisorJob())
+    val appCoroutineScope = CoroutineScope(SupervisorJob())
 
     val appComponent: AppComponent by lazy {
         DaggerAppComponent

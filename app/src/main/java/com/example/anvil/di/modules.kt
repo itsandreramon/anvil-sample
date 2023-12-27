@@ -14,10 +14,10 @@ object AppModule {
     @Provides
     @ApplicationCoroutineScope
     @SingleIn(AppScope::class)
-    fun provideApplicationCoroutineScope(
+    fun provideAppCoroutineScope(
         app: App,
     ): CoroutineScope {
-        return app.applicationScope
+        return app.appCoroutineScope
     }
 }
 
