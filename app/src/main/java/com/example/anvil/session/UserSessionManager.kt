@@ -41,7 +41,7 @@ interface UserSessionManager {
 
         override var userCoroutineScope: CoroutineScope
             get() = _userCoroutineScope ?: createUserCoroutineScope()
-            set(value) { _userCoroutineScope = value }
+            private set(value) { _userCoroutineScope = value }
 
         override var userComponent: UserComponent? = null
 
