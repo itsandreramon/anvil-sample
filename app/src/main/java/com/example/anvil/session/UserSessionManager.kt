@@ -11,6 +11,10 @@ import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
 import javax.inject.Inject
 
+class UserCoroutineScope(
+    private val parentScope: CoroutineScope
+) : CoroutineScope by parentScope
+
 /**
  * Manages the lifecycle of the UserComponent by creating
  * it only when provided with a valid UserSession object.
@@ -23,7 +27,7 @@ import javax.inject.Inject
  */
 interface UserSessionManager {
 
-    val userCoroutineScope: CoroutineScope
+    val userCoroutineScope: UserCoroutineScope
 
     val userComponent: UserComponent?
 
@@ -37,9 +41,9 @@ interface UserSessionManager {
         private val app: App,
     ) : UserSessionManager {
 
-        private var _userCoroutineScope: CoroutineScope? = null
+        private var _userCoroutineScope: UserCoroutineScope? = null
 
-        override val userCoroutineScope: CoroutineScope
+        override val userCoroutineScope: UserCoroutineScope
             get() = _userCoroutineScope ?: createUserCoroutineScope()
 
         override var userComponent: UserComponent? = null
@@ -58,12 +62,13 @@ interface UserSessionManager {
 
             userComponent = app.appComponent
                 .userComponentFactory()
-                .create(session)
+                .create(session, userCoroutineScope)
         }
 
-        private fun createUserCoroutineScope(): CoroutineScope {
-            return _userCoroutineScope ?: CoroutineScope(SupervisorJob())
-                .also { _userCoroutineScope = it }
+        private fun createUserCoroutineScope(): UserCoroutineScope {
+            return _userCoroutineScope ?: UserCoroutineScope(
+                CoroutineScope(SupervisorJob())
+            ).also { _userCoroutineScope = it }
         }
     }
 }

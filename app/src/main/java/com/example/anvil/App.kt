@@ -8,16 +8,20 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 import javax.inject.Inject
 
+class AppCoroutineScope(
+    private val parentScope: CoroutineScope
+) : CoroutineScope by parentScope
+
 class App : Application() {
 
     @Inject lateinit var userSessionManager: UserSessionManager
 
-    val appCoroutineScope = CoroutineScope(SupervisorJob())
+    private val appCoroutineScope = AppCoroutineScope(CoroutineScope(SupervisorJob()))
 
     val appComponent: AppComponent by lazy {
         DaggerAppComponent
             .factory()
-            .create(this)
+            .create(this, appCoroutineScope)
     }
 
     override fun onCreate() {

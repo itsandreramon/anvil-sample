@@ -1,6 +1,8 @@
 package com.example.anvil.di
 
 import com.example.anvil.App
+import com.example.anvil.AppCoroutineScope
+import com.example.anvil.session.UserCoroutineScope
 import com.example.anvil.session.UserSession
 import com.example.anvil.ui.login.LoginActivity
 import com.example.anvil.ui.main.MainActivity
@@ -18,6 +20,7 @@ interface AppComponent {
     interface Factory {
         fun create(
             @BindsInstance app: App,
+            @BindsInstance appCoroutineScope: AppCoroutineScope,
         ): AppComponent
     }
 
@@ -36,6 +39,7 @@ interface UserComponent {
     interface Factory {
         fun create(
             @BindsInstance userSession: UserSession,
+            @BindsInstance userCoroutineScope: UserCoroutineScope,
         ): UserComponent
     }
 
