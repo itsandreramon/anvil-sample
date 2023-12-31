@@ -13,7 +13,7 @@ object AppModule {
 
     @Provides
     @IntoSet
-    fun timberInitilizer(): () -> Unit = {
+    fun timberInitializer(): () -> Unit = {
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
         }
