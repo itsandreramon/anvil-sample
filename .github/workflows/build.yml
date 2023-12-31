@@ -29,8 +29,5 @@ jobs:
         with:
           gradle-version: wrapper
 
-      - name: Create local.properties
-        run: touch local.properties
-
       - name: Build app
         run: ./gradlew build
