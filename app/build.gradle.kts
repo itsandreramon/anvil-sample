@@ -17,23 +17,22 @@ android {
 
         versionCode = 1
         versionName = "1.0"
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
 
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
             )
         }
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
 
     buildFeatures {
@@ -41,7 +40,7 @@ android {
     }
 
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = JavaVersion.VERSION_11.toString()
     }
 }
 
@@ -50,16 +49,11 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.viewmodel)
-    implementation(libs.androidx.constraintlayout)
-
+    implementation(libs.anvil.annotations)
     implementation(libs.coroutines.core)
     implementation(libs.coroutines.android)
-
-    implementation(libs.anvil.annotations)
-
-    implementation(libs.dagger.lib)
-    kapt(libs.dagger.compiler)
-
     implementation(libs.material)
     implementation(libs.timber)
+    implementation(libs.dagger.lib)
+    kapt(libs.dagger.compiler)
 }
