@@ -40,6 +40,7 @@ android {
     }
 
     kotlinOptions {
+        allWarningsAsErrors = true
         jvmTarget = JavaVersion.VERSION_11.toString()
     }
 }
