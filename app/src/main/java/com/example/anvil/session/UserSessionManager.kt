@@ -3,12 +3,12 @@ package com.example.anvil.session
 import com.example.anvil.App
 import com.example.anvil.di.AppScope
 import com.example.anvil.di.UserComponent
-import com.example.anvil.util.log
 import com.squareup.anvil.annotations.ContributesBinding
 import com.squareup.anvil.annotations.optional.SingleIn
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
+import timber.log.Timber
 import javax.inject.Inject
 
 class UserCoroutineScope(
@@ -48,14 +48,14 @@ interface UserSessionManager {
             private set
 
         override fun resetSession() {
-            log("reset session...")
+            Timber.d("reset session...")
             _userCoroutineScope?.cancel()
             _userCoroutineScope = null
             userComponent = null
         }
 
         override fun createSession(id: String) {
-            log("create session...")
+            Timber.d("create session...")
             val session = UserSession(id)
 
             userComponent = app.appComponent

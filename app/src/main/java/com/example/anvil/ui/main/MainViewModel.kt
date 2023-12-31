@@ -3,7 +3,7 @@ package com.example.anvil.ui.main
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.anvil.data.RemoteDataSource
-import com.example.anvil.util.log
+import timber.log.Timber
 import javax.inject.Inject
 
 class MainViewModel(
@@ -11,7 +11,7 @@ class MainViewModel(
 ) : ViewModel() {
 
     init {
-        log("Created main view model: $this")
+        Timber.d("Created main view model: $this")
     }
 
     fun getData(): String {

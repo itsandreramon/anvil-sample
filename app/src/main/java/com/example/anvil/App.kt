@@ -3,6 +3,8 @@ package com.example.anvil
 import android.app.Application
 import com.example.anvil.di.AppComponent
 import com.example.anvil.di.DaggerAppComponent
+import com.example.anvil.di.DaggerSet
+import com.example.anvil.di.InitializerFunction
 import com.example.anvil.session.UserSessionManager
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
@@ -15,6 +17,7 @@ class AppCoroutineScope(
 class App : Application() {
 
     @Inject lateinit var userSessionManager: UserSessionManager
+    @Inject lateinit var appInitializers: DaggerSet<InitializerFunction>
 
     private val appCoroutineScope: AppCoroutineScope by lazy {
         AppCoroutineScope(CoroutineScope(SupervisorJob()))
@@ -29,5 +32,6 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
         appComponent.inject(this)
+        appInitializers.forEach { it() }
     }
 }

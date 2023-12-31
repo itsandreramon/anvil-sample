@@ -2,8 +2,8 @@ package com.example.anvil.data
 
 import com.example.anvil.AppCoroutineScope
 import com.example.anvil.di.AppScope
-import com.example.anvil.util.log
 import com.squareup.anvil.annotations.optional.SingleIn
+import timber.log.Timber
 import javax.inject.Inject
 
 @SingleIn(AppScope::class)
@@ -12,8 +12,8 @@ class LocalDataSource @Inject constructor(
 ) : DataSource {
 
     init {
-        log("Creating data source: $this")
-        log("Got coroutine scope: $coroutineScope")
+        Timber.d("Creating data source: $this")
+        Timber.d("Got coroutine scope: $coroutineScope")
     }
 
     override fun getData(): String {
