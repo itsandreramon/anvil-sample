@@ -17,7 +17,7 @@ class AppCoroutineScope(
 class App : Application() {
 
     @Inject lateinit var userSessionManager: UserSessionManager
-    @Inject lateinit var appInitializers: DaggerSet<InitializerFunction>
+    @Inject lateinit var initializers: DaggerSet<InitializerFunction>
 
     private val appCoroutineScope: AppCoroutineScope by lazy {
         AppCoroutineScope(CoroutineScope(SupervisorJob()))
@@ -32,6 +32,6 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
         appComponent.inject(this)
-        appInitializers.forEach { it() }
+        initializers.forEach { it() }
     }
 }
