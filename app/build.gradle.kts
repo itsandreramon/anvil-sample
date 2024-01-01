@@ -55,6 +55,6 @@ dependencies {
     implementation(libs.coroutines.android)
     implementation(libs.material)
     implementation(libs.timber)
-    implementation(libs.dagger.lib)
+    implementation(libs.dagger)
     kapt(libs.dagger.compiler)
 }

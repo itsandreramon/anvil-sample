@@ -31,7 +31,7 @@ androidx-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", ve
 coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
 coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
 
-dagger-lib = { module = "com.google.dagger:dagger", version.ref = "dagger" }
+dagger = { module = "com.google.dagger:dagger", version.ref = "dagger" }
 dagger-compiler = { module = "com.google.dagger:dagger-compiler", version.ref = "dagger" }
 
 anvil-annotations = { module = "com.squareup.anvil:annotations-optional", version.ref = "anvil" }
