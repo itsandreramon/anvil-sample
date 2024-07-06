@@ -4,7 +4,7 @@ ksp = "1.9.22-1.0.16"
 agp = "8.2.0"
 gradle = "8.5"
 
-androidx-core = "1.12.0"
+androidx-core = "1.13.1"
 androidx-lifecycle = "2.6.2"
 androidx-activity = "1.8.2"
 androidx-appcompat = "1.6.1"
