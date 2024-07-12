@@ -19,7 +19,7 @@ class UserCoroutineScope(
  * Manages the lifecycle of the UserComponent by creating
  * it only when provided with a valid UserSession object.
  *
- * Modules included in the UserComponent and its descendents can safely
+ * Modules included in the UserComponent and its descendants can safely
  * inject a UserSession object and will be recreated if a new UserSession
  * object is created.
  *
